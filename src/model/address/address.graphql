@@ -1,0 +1,8 @@
+type Address {
+    id: ID
+    address: String
+}
+
+input CreateUserInput {
+    address: String
+}

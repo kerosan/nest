@@ -1,0 +1,15 @@
+type User {
+    id: ID
+    email: String
+    name: String
+    phone: String
+    address: Address
+    deviceId: Int
+    balance: Float
+  }
+
+input CreateUserInput {
+    email: String
+    name: String
+    phone: String
+}
