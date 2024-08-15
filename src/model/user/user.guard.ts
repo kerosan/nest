@@ -9,6 +9,7 @@ import { GqlExecutionContext } from '@nestjs/graphql';
 export class UserGuard implements CanActivate {
   canActivate(context: ExecutionContext): boolean {
     const ctx = GqlExecutionContext.create(context);
+    console.log(ctx);
     return true;
   }
 }

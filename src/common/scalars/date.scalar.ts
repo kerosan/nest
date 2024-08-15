@@ -13,6 +13,7 @@ export class DateScalar implements CustomScalar<number, Date> {
     return value.getTime(); // value sent to the client
   }
 
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   parseLiteral(ast: any): Date {
     if (ast.kind === Kind.INT) {
       return new Date(ast.value);

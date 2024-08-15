@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Address } from 'src/graphql.schema';
+import type { Address } from 'src/graphql.schema';
 
 @Injectable()
 export class AddressService {
