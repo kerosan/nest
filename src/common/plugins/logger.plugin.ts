@@ -6,12 +6,19 @@ import { Plugin } from '@nestjs/apollo';
 
 @Plugin()
 export class LoggingPlugin implements ApolloServerPlugin {
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  async requestDidStart(): Promise<GraphQLRequestListener<any>> {
-    console.log('Request started');
+  async requestDidStart({
+    request,
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  }): Promise<GraphQLRequestListener<any>> {
+    if (request.operationName !== 'IntrospectionQuery') {
+      console.log(`Request :: [${request.operationName ?? ''}]`);
+      console.log(request.query);
+    }
     return {
-      async willSendResponse() {
-        console.log('Will send response');
+      async willSendResponse({ response }) {
+        if (request.operationName !== 'IntrospectionQuery') {
+          console.log('Response :: ', response.body);
+        }
       },
     };
   }

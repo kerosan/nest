@@ -1,26 +1,19 @@
 import { PrismaService } from '@/common/prisma/prisma.service';
 import { Inject } from '@nestjs/common';
 import { Resolver, Query, ResolveField } from '@nestjs/graphql';
-import { User } from 'src/graphql.schema';
+import { Device } from 'src/graphql.schema';
 
-@Resolver(User)
-export class UserResolver {
+@Resolver(Device)
+export class DeviceResolver {
   constructor(@Inject(PrismaService) private prismaService: PrismaService) {}
 
-  @Query(() => User)
+  @Query(() => Device)
   users() {
-    return this.prismaService.user.findMany();
+    return this.prismaService.device.findMany();
   }
 
   @ResolveField()
   address(parent, args, ctx, info) {
-    return this.prismaService.address.findFirst({
-      where: { id: Number(parent.addressId) },
-    });
-  }
-
-  @ResolveField()
-  device(parent, args, ctx, info) {
     return this.prismaService.device.findFirst({
       where: { id: Number(parent.deviceId) },
     });

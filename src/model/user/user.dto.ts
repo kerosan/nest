@@ -1,7 +1,13 @@
-// import { Min } from 'class-validator';
-// import { CreateCatInput } from '../../graphql.schema';
+import { IsEmail, IsPhoneNumber, IsString } from 'class-validator';
+import { CreateUserInput } from '../../graphql.schema';
 
-// export class CreateCatDto extends CreateCatInput {
-//   @Min(1)
-//   age: number;
-// }
+export class CreateUserDto extends CreateUserInput {
+  @IsString()
+  name?: string;
+
+  @IsEmail()
+  email: string;
+
+  @IsPhoneNumber()
+  phone?: string;
+}

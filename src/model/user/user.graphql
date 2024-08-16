@@ -4,7 +4,7 @@ type User {
     name: String
     phone: String
     address: Address
-    deviceId: Int
+    device: Device
     balance: Float
   }
 

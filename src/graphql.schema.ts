@@ -1,3 +1,4 @@
+
 /*
  * -------------------------------------------------------
  * THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
@@ -14,9 +15,20 @@ export class CreateUserInput {
     phone?: Nullable<string>;
 }
 
+export class CreateDeviceInput {
+    name?: Nullable<string>;
+    initialValue?: Nullable<number>;
+}
+
 export class Address {
     id?: Nullable<string>;
     address?: Nullable<string>;
+}
+
+export class Device {
+    id?: Nullable<string>;
+    name?: Nullable<string>;
+    initialValue?: Nullable<number>;
 }
 
 export class User {
@@ -25,7 +37,7 @@ export class User {
     name?: Nullable<string>;
     phone?: Nullable<string>;
     address?: Nullable<Address>;
-    deviceId?: Nullable<number>;
+    device?: Nullable<Device>;
     balance?: Nullable<number>;
 }
 

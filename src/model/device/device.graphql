@@ -1,0 +1,10 @@
+type Device {
+    id: ID
+    name: String
+    initialValue: Float
+}
+
+input CreateDeviceInput {
+    name: String
+    initialValue: Float
+}

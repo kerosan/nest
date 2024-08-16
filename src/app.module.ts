@@ -5,9 +5,12 @@ import { upperDirectiveTransformer } from './common/directives/upperDirectiveTra
 import { AddressModule } from './model/address/address.module';
 import { UserModule } from './model/user/user.module';
 import { DateScalar } from './common/scalars/date.scalar';
+import { LoggingPlugin } from './common/plugins/logger.plugin';
+import { PrismaModule } from './common/prisma/prisma.module';
 
 @Module({
   imports: [
+    PrismaModule,
     DateScalar,
     UserModule,
     AddressModule,
@@ -18,5 +21,6 @@ import { DateScalar } from './common/scalars/date.scalar';
       installSubscriptionHandlers: true,
     }),
   ],
+  providers: [LoggingPlugin],
 })
 export class AppModule {}
